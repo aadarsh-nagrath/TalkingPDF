@@ -2,6 +2,8 @@ import { Button} from '@/components/ui/button';
 import {UserButton, auth} from '@clerk/nextjs';
 import Link from 'next/link';
 import {LogIn} from 'lucide-react';
+import FileUpload from '../components/ui/FileUpload';
+
 
 export default async function Home() {
   // auth verifier
@@ -24,7 +26,7 @@ export default async function Home() {
           <p className='max-w-xl mt-1 text-lg text-white'>Start Talking to your PDF, extract information and find answers to your Relevant Questions. Research, Find, and use the tool at its full potential</p>
           
           <div className='mt-4 w-full'>
-            {isAuth ? (<h1>User IS Logged In</h1>) : (
+            {isAuth ? <FileUpload/> : (
               <Link href="/sign-in">
                 <Button>Login to get Started!
                 <LogIn className='w-4 h-4 ml-2' />
