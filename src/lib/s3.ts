@@ -25,7 +25,7 @@ export async function uploadToS3(file: File){
         }
 
         const upload = s3.putObject(params).on('httpUploadProgress', evt => {
-            console.log('Uploading To s3 ..............', parseInt(((evt.loaded*1000)/evt.total).toString())) + '%'
+            console.log('Uploading To s3 ..............', parseInt(((evt.loaded*100)/evt.total).toString())) + '%'
             // this will show the percentage of file uploaded to s3
         }).promise()
 
