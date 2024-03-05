@@ -12,7 +12,7 @@ const FileUpload = () => {
     const {mutate, isLoading} = useMutation({
         // For this mutation we will pass few things 
         mutationFn: async ({file_key, file_name} : {file_key: string, file_name: string})=> {
-            const response = await axios.post('/api/create-chat-room', {
+            const response = await axios.post('/api/create-chat', {
                 // now pass two things file key and name.
                 file_key,
                 file_name
@@ -45,7 +45,7 @@ const FileUpload = () => {
                 mutate(data, {
                     onSuccess: (data) => {
                         console.log(data);
-                        toast.success(data.message);
+                        // toast.success(data.message);
                     },
                     onError: (err)=>{
                         toast.error("Error creating chat");
